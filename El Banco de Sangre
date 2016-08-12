@@ -1,0 +1,96 @@
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+
+int main(int argc, char** argv) {
+	system("color f2");
+	int a,b,c,homcont=0, edad, cp=0, vecesj=0, p=0;
+	char r,r2, r3, sexo, nombre[20], tipo;
+	float por,porcent, menor=9999,porcentf,peso,mil=0.5,ta,tb,to,tab,x1,x2,y1,y2,compara1, compara2,yp,xp,indicador, indicadorf, nf, nj;
+	
+	/*banco de dangre*/
+	
+	for(a=0;a<=4;a++){
+		printf("\ndia %d\n", a+1);
+		
+		do{
+			printf("\nporfavor digame su nombre: ");
+			fflush(stdin);
+			gets(nombre);
+			printf("\nusted es hombre o mujer, pregunta de rutina nada mas, (h)hombre (m)mujer");
+			sexo=getch();
+			printf("\nporfavor digame cuantos año posee usted de vivo: ");
+			scanf("%d", &edad);
+			printf("\nque tanto pesa usted, no es que este gordo solo es una pregunta de rutina: ");
+			scanf("%f", &peso);
+		
+
+			if(edad>=18 && edad<=60){
+				printf("\ntu edad es correcta\n");
+				if(peso>=50){
+					printf("\ny tu peso tambien es el correcto, felicidades eres apto para donar\n");
+					printf("\ntu tipo de sangre es AB (s)si (n)no\n")
+					r2=getch();
+					if(r2=='s' || r2=='S'){
+						tab=(tab+mil);
+					}
+					else{
+						printf("\nbueno\n");
+					}
+					printf("\nentonces cual es su tipo de sangre A, B u O\n");
+			        tipo=getch();
+			        if(tipo=='a'|| tipo=='A'){
+			        	ta=(ta+mil);
+					}
+					  if(tipo=='b'|| tipo=='B'){
+			        	tb=(tb+mil);
+					}
+					  if(tipo=='o'|| tipo=='O'){
+			        	to=(to+mil);
+					}
+					  
+				   if((sexo=='h' || sexo=='H') && (a>=1 && a<=3)){
+				   porcent=porcent+peso;
+				   homcont++;
+		     	    }
+		     	    if((r2=='s' || r2=='S') && (sexo=='m'|| sexo=='M') && peso<menor){
+		     	    	menor=peso;
+					 }
+					
+				}
+				else{
+					printf("\nno cumples con el peso estimado, lo lamento pero no puedes donar\n");
+				}
+			}
+			else{
+				printf("\nno estas en la edad adecuada para donar, lo lamento\n");
+			}
+			
+			printf("\nhay otro pasiente (s)si o (n)no");
+			r=getch();
+			system("cls");
+		}while(r=='s' || r=='S');
+		
+		printf("\nla cantidad de litros totales de sangre tipo a es: %f\n", ta);
+		printf("\nla cantidad de litros totales de sangre tipo b es: %f\n", tb);
+		printf("\nla cantidad de litros totales de sangre tipo o es: %f\n", to);
+		printf("\nla cantidad de litros totales de sangre tipo ab es: %f\n", tab);
+		printf("\nel menor peso entre las mujeres que donaron sangre AB es de : %f", menor);
+		if(a==3){
+		porcentf=porcent/homcont;
+		printf("\nel peso promedio de los hombres que donaron de martes a jueves es de : %2.f",porcentf );
+		}
+		
+		edad=0;
+		peso=0;
+		ta=0;
+		tb=0;
+		to=0;
+		tab=0;
+		
+		system("pause");
+		system("cls");
+	}
+	
+	return 0;
+}
